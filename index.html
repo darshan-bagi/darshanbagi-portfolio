@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Darshan Bagi — Digital Marketing Strategist specialising in growth, content and analytics.">
+  <title>Darshan Bagi | Digital Marketing</title>
+  <style>
+    :root {
+      --bg: #10110f;
+      --panel: #191b18;
+      --text: #f5f5ef;
+      --muted: #a6aaa0;
+      --accent: #c6fa65;
+      --border: #30332d;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1080px, 90%); margin: auto; }
+    nav {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 25px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand { font-weight: 800; letter-spacing: 1px; }
+    .brand span, .accent { color: var(--accent); }
+    .links { display: flex; gap: 24px; font-size: 14px; }
+    .hero { padding: 100px 0 85px; }
+    .eyebrow {
+      color: var(--accent); font-size: 12px;
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.05; letter-spacing: -3px;
+      margin: 22px 0;
+    }
+    h2 { font-size: clamp(27px, 4vw, 40px); line-height: 1.2; }
+    .intro { max-width: 610px; color: var(--muted); font-size: 18px; }
+    .button {
+      display: inline-block; margin: 20px 10px 0 0;
+      padding: 12px 19px; border-radius: 5px;
+      background: var(--accent); color: #11140b;
+      font-weight: 700;
+    }
+    .button.secondary {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    section { padding: 65px 0; border-top: 1px solid var(--border); }
+    .stats, .projects, .skills {
+      display: grid; gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card {
+      padding: 23px; background: var(--panel);
+      border: 1px solid var(--border); border-radius: 10px;
+    }
+    .number { color: var(--accent); font-size: 32px; font-weight: 800; }
+    .card p, .muted { color: var(--muted); }
+    .tag {
+      display: inline-block; border: 1px solid var(--border);
+      padding: 4px 9px; border-radius: 20px;
+      color: var(--accent); font-size: 12px; margin: 3px;
+    }
+    footer {
+      padding: 30px 0; border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 13px;
+    }
+    @media (max-width: 650px) {
+      .links { gap: 12px; font-size: 12px; }
+      .hero { padding: 65px 0; }
+      .stats, .projects, .skills { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1.5px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#">DARSHAN<span>.</span></a>
+      <div class="links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">Digital Marketing · Strategy · Analytics</div>
+      <h1>Making marketing<br>matter<span class="accent">.</span></h1>
+      <p class="intro">
+        I'm Darshan Bagi, a digital marketing professional focused on
+        turning creative ideas and data into meaningful business growth.
+      </p>
+      <a class="button" href="#work">Explore my work ↘</a>
+      <a class="button secondary" href="#contact">Let's connect</a>
+    </header>
+
+    <section>
+      <div class="eyebrow">Selected impact</div>
+      <h2>Marketing with measurable outcomes.</h2>
+      <div class="stats">
+        <article class="card">
+          <div class="number">+28%</div>
+          <strong>Lead generation</strong>
+          <p>Reported increase through targeted digital and community campaigns.</p>
+        </article>
+        <article class="card">
+          <div class="number">+34%</div>
+          <strong>Engagement</strong>
+          <p>Reported improvement from multi-format content initiatives.</p>
+        </article>
+        <article class="card">
+          <div class="number">+18%</div>
+          <strong>Campaign ROI</strong>
+          <p>Reported improvement through performance tracking and optimisation.</p>
+        </article>
+      </div>
+      <p class="muted">Figures reflect results from my previous marketing role.</p>
+    </section>
+
+    <section id="work">
+      <div class="eyebrow">01 / Selected projects</div>
+      <h2>Work that tells a story.</h2>
+      <div class="projects">
+        <article class="card">
+          <span class="tag">Content strategy</span>
+          <h3>Walfinch Wellness</h3>
+          <p>Educational short-form video concepts, content pillars and a social media publishing strategy for a home-care business.</p>
+          <p class="accent">Content · Social media · Planning</p>
+        </article>
+        <article class="card">
+          <span class="tag">Growth marketing</span>
+          <h3>Local Lead Generation</h3>
+          <p>A case study exploring local targeting, community outreach and digital campaign optimisation.</p>
+          <p class="accent">SEO · Campaigns · CRM</p>
+        </article>
+        <article class="card">
+          <span class="tag">Analytics</span>
+          <h3>Marketing Performance Lab</h3>
+          <p>A planned demonstration dashboard to explore campaign performance, conversion rates and lead quality.</p>
+          <p class="accent">Analytics · Reporting · Insights</p>
+        </article>
+      </div>
+      <p class="muted">Portfolio note: expand each project with verified details, your contribution and supporting visuals. Label proposed concepts and demo dashboards clearly.</p>
+    </section>
+
+    <section id="about">
+      <div class="eyebrow">02 / About me</div>
+      <h2>Curiosity backed by strategy.</h2>
+      <p class="intro">
+        I hold an MBA in Business Administration, specialising in Strategic
+        Marketing, from the University of Hertfordshire. My experience
+        includes content creation, local marketing, campaign reporting
+        and CRM workflow optimisation.
+      </p>
+      <div class="skills">
+        <div class="card"><strong>Digital</strong><p>SEO, social media, content and campaign planning.</p></div>
+        <div class="card"><strong>Analytics</strong><p>Performance measurement, reporting and optimisation.</p></div>
+        <div class="card"><strong>Creative</strong><p>Content concepts, visual storytelling and short-form video.</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="eyebrow">03 / Contact</div>
+      <h2>Have a project in mind?</h2>
+      <p class="intro">I'm open to conversations about digital marketing opportunities, creative campaigns and growth projects.</p>
+      <a class="button" href="https://www.linkedin.com/in/darshan-bagi-818451250/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+      <a class="button secondary" href="mailto:YOUR_EMAIL_HERE">Email me ↗</a>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Darshan Bagi · Digital Marketing Portfolio
+    </footer>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
