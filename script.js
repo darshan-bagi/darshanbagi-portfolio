@@ -1,24 +1,70 @@
-const cards=[...document.querySelectorAll('.project-card')];
-let current=0;
-const count=document.getElementById('slide-count');
-const progress=document.getElementById('progress-bar');
-function setSlide(next){current=(next+cards.length)%cards.length;cards.forEach((card,i)=>{card.style.opacity=i===current?'1':'.58';card.style.transform=i===current?'translateY(0)':'translateY(5px)';});count.textContent=`${String(current+1).padStart(2,'0')} — ${String(cards.length).padStart(2,'0')}`;progress.style.width=((current+1)/cards.length*100)+'%';if(window.innerWidth<600){cards[current].scrollIntoView({behavior:'smooth',block:'nearest'});}}
-document.getElementById('prev').addEventListener('click',()=>setSlide(current-1));
-document.getElementById('next').addEventListener('click',()=>setSlide(current+1));
-setSlide(0);
-const details={
- walfinch:{kicker:'CASE STUDY / SOCIAL CONTENT',title:'Care, made visible.',summary:'At Walfinch Waltham Forest, I helped build a social presence from the ground up and created content that made home care, wellbeing and community topics easier to engage with.',items:[['My contribution','Content planning, post design, captions, social publishing and multi-channel campaign support.'],['Creative example','International Yoga Day and National Let’s Laugh Day content designed to make wellbeing feel welcoming and accessible.'],['Reported outcomes','120+ content assets managed; engagement up 34%; campaign ROI improved by 18%.']],url:'https://www.instagram.com/walfinch_walthamforest/',link:'View Walfinch Instagram'},
- annotsav:{kicker:'CASE STUDY / ORGANIC GROWTH',title:'Culture with momentum.',summary:'A social-first project for Annotsav, using trends, memes and short-form video to build interest around a large cultural event.',items:[['My contribution','Social media strategy, content ideas and trend-led creative.'],['Approach','Build a recognisable content rhythm and use formats that invite sharing and participation.'],['Reported outcome','The CV records 5K+ organic followers in one month and a 60% engagement increase for the Annotsav / AXOR work.']],url:'https://www.instagram.com/rotary_annotsav/',link:'View Annotsav Instagram'},
- performance:{kicker:'CASE STUDY / ANALYTICS',title:'Numbers with a purpose.',summary:'I use reporting to connect campaign activity with decisions: what is moving, what needs attention and where optimisation could help.',items:[['What I look at','Impressions, clicks, click-through rate, cost metrics and trend movement.'],['Tools and workflow','Analytics reporting, campaign reviews and CRM insights using tools including GA4 and Zoho CRM.'],['Outcome focus','My Walfinch CV records an 18% improvement in campaign ROI after optimisation.']],url:'https://www.linkedin.com/in/darshan-bagi-818451250/',link:'Discuss analytics work'},
- scratchpad:{kicker:'CASE STUDY / INTERNSHIP',title:'Curiosity meets strategy.',summary:'During my internship at Scratchpad.Inc, I gained agency experience across copywriting, brand development, paid search and organic strategy.',items:[['My contribution','Supported PPC and organic strategy, created brand identities for three businesses and worked on social media strategy.'],['Research','Academic research explored the relationship between SEO practices and website traffic.'],['Reported outcomes','My CV records a 12% improvement in PPC and organic strategy outcomes.']],url:'https://scratchpad.co.in/',link:'Visit Scratchpad.Inc'}
+const menuButton = document.querySelector('.menu-toggle');
+const mobileNav = document.querySelector('.mobile-nav');
+menuButton?.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.textContent = open ? '×' : '☰';
+});
+mobileNav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  mobileNav.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.textContent = '☰';
+}));
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const projects = {
+  walfinch: {
+    kicker: 'SOCIAL CAMPAIGN / 01',
+    title: 'Care, made visible.',
+    description: 'Built and managed social content for Walfinch Waltham Forest, turning care and wellbeing themes into accessible, community-minded posts.',
+    note: 'Focus areas: senior-friendly wellbeing content, community awareness, social media planning and short-form creative. Reported experience includes 120+ content assets, 34% higher engagement and 28% growth in local lead generation.'
+  },
+  organic: {
+    kicker: 'CONTENT & COMMUNITY / 02',
+    title: 'Culture with momentum.',
+    description: 'A concept for trend-led content and short-form video that gives a cultural event a recognisable social identity.',
+    note: 'The approach combines timely creative, audience relevance, clear visual consistency and platform-native content. Use this project to show your actual campaign examples and published assets.'
+  },
+  analytics: {
+    kicker: 'REPORTING / 03',
+    title: 'Numbers with purpose.',
+    description: 'Campaign reporting that turns impressions, clicks, click-through rate and engagement into practical optimisation decisions.',
+    note: 'A useful report should connect performance to the objective, compare results over time, identify the strongest creative or audience and recommend the next test.'
+  },
+  internship: {
+    kicker: 'SEO & PAID SEARCH / 04',
+    title: 'Make discovery count.',
+    description: 'An overview of internship experience and learning across digital marketing, search, content and campaign reporting.',
+    note: 'Keep any certificates, reports and campaign screenshots in the assets folder and link only to work you are comfortable sharing publicly.'
+  }
 };
-const modal=document.getElementById('case-modal');
-document.querySelectorAll('.project-open').forEach(button=>button.addEventListener('click',()=>{const key=button.closest('.project-card').dataset.project;const d=details[key];document.getElementById('modal-kicker').textContent=d.kicker;document.getElementById('modal-title').textContent=d.title;document.getElementById('modal-summary').textContent=d.summary;document.getElementById('modal-details').innerHTML=d.items.map(([title,body])=>`<div class="modal-detail"><strong>${title}</strong><span>${body}</span></div>`).join('');const link=document.getElementById('modal-link');link.href=d.url;link.textContent=d.link+' ↗';modal.showModal();document.body.classList.add('modal-open');}));
-function closeModal(){modal.close();document.body.classList.remove('modal-open')}
-document.querySelector('.modal-close').addEventListener('click',closeModal);
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
-modal.addEventListener('close',()=>document.body.classList.remove('modal-open'));
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>{el.classList.add('will-reveal');observer.observe(el)});
-const menu=document.querySelector('.menu-toggle');const nav=document.getElementById('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
-document.getElementById('year').textContent=new Date().getFullYear();
+const dialog = document.getElementById('project-dialog');
+document.querySelectorAll('[data-project]').forEach(card => card.addEventListener('click', () => {
+  const project = projects[card.dataset.project];
+  if (!project) return;
+  document.getElementById('dialog-kicker').textContent = project.kicker;
+  document.getElementById('dialog-title').textContent = project.title;
+  document.getElementById('dialog-description').textContent = project.description;
+  document.getElementById('dialog-note').textContent = project.note;
+  dialog.showModal();
+}));
+document.querySelector('.dialog-close')?.addEventListener('click', () => dialog.close());
+document.querySelector('.dialog-done')?.addEventListener('click', () => dialog.close());
+dialog?.addEventListener('click', event => {
+  if (event.target === dialog) dialog.close();
+});
+const revealItems = document.querySelectorAll('.project-card, .metric, .approach-list article, .about-copy');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealItems.forEach(item => {
+    item.classList.add('will-reveal');
+    observer.observe(item);
+  });
+}
